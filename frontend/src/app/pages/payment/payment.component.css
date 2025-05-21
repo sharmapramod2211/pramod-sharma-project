@@ -1,0 +1,48 @@
+.home-container {
+    background-image: url('https://media.cntraveler.com/photos/599dd39ae74489198b4e3080/16:9/w_1920,c_limit/Flight-Deals_GettyImages-126346910.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay {
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.payment-container {
+    padding: 40px;
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+  }
+  
+  .payment-card {
+    margin-top: 20px;
+  }
+  
+  .pay-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .pay-button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,0 +1,116 @@
+.home-container {
+  background-image: url('https://media.cntraveler.com/photos/599dd39ae74489198b4e3080/16:9/w_1920,c_limit/Flight-Deals_GettyImages-126346910.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  border: none;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  width: 100%;
+  max-width: 420px;
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-label {
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.form-control {
+  border-radius: 8px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.15rem rgba(0, 123, 255, 0.25);
+}
+
+button.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 0.6rem;
+}
+
+.alert-danger {
+  border-radius: 8px;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1.5rem;
+  }
+
+  .form-label,
+  .form-control {
+    font-size: 0.95rem;
+  }
+}
+
+
+.profile-pic-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #007bff;
+  background-color: #f0f0f0;
+}
+
+.upload-icon {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

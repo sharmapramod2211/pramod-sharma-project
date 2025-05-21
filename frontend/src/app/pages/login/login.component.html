@@ -1,0 +1,55 @@
+<div class="home-container">
+  <div class="overlay">
+    <div class="heading-welcome text-center">
+      <h1 class="animate-namaste">Namaste India🙏</h1>
+    </div>
+    <div class="login-box">
+      <div class="card p-4 shadow">
+        <h3 class="text-center mb-4">Login</h3>
+        
+        <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+          <div class="form-group mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input
+              type="email"
+              id="email"
+              class="form-control"
+              [(ngModel)]="user_email"
+              name="user_email"
+              required
+            />
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              [(ngModel)]="user_password"
+              name="user_password"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100" [disabled]="!loginForm.form.valid">
+            Login
+          </button>
+        </form>
+
+        <div class="text-center mt-3">
+          <small>
+            Don't have an account?
+            <a (click)="onRegister()" class="register-link" style="cursor: pointer;">Register here</a>
+          </small>
+        </div>
+        <div *ngIf="successMessage" class="alert alert-danger mt-3 text-center">
+          {{ successMessage }}
+        </div>
+        <div *ngIf="errorMessage" class="alert alert-danger mt-3 text-center">
+          {{ errorMessage }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+
+<div class="home-container">
+    <div class="overlay">
+        <div class="payment-container">
+            <h2>Payment Page</h2>
+            <div class="payment-card">
+            <p><strong>Booking ID:</strong> {{ paymentDetails.booking_id }}</p>
+            <p><strong>Amount:</strong> ₹{{ paymentDetails.amount }}</p>
+            <p><strong>Payment Mode:</strong> Online Only</p>
+        
+            <button class="pay-button" (click)="payNow()">Pay Now</button>
+            </div>
+        </div>
+    </div>
+</div>  

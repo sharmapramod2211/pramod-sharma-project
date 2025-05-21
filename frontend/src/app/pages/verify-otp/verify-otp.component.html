@@ -1,0 +1,40 @@
+<div class="home-container">
+    <div class="overlay">
+      <div class="card">
+        <h3 class="text-center mb-4">Verify OTP</h3>
+  
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            [(ngModel)]="otpData.user_email"
+            name="user_email"
+            required
+          />
+        </div>
+  
+        <div class="mb-3">
+          <label for="otp" class="form-label">Enter OTP</label>
+          <input
+            type="number"
+            class="form-control"
+            id="otp"
+            [(ngModel)]="otpData.user_otp_verify"
+            name="user_otp_verify"
+            required
+          />
+        </div>
+  
+        <button (click)="onVerifyOtp()" class="btn btn-primary w-100">
+          Verify OTP
+        </button>
+  
+        <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+          {{ errorMessage }}
+        </div>
+      </div>
+    </div>
+  </div>
+  

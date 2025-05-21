@@ -1,0 +1,229 @@
+/* General Layout and Background */
+body {
+    margin: 0;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    background-color: #f1f3f5;
+    color: #212529;
+}
+
+.home-container {
+    background-image: url('https://media.cntraveler.com/photos/599dd39ae74489198b4e3080/16:9/w_1920,c_limit/Flight-Deals_GettyImages-126346910.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay {
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book-ticket-container {
+    padding: 2rem;
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* Travel Card */
+.travel-card {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem 3rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.travel-left h5 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.travel-meta,
+.duration {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.seats-card,
+.summary-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Seat Legends */
+.legend {
+    margin: 1rem 0;
+    font-size: 0.85rem;
+    color: #555;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 4px;
+}
+
+/* Seat Colors */
+.available {
+    background: #28a745;
+}
+
+.booked {
+    background: #6c757d;
+}
+
+.selected {
+    background: #007bff;
+}
+
+/* Seat Grid Layout */
+.seats-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 1rem;
+}
+
+.seat-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.row-label {
+    width: 60px;
+    font-weight: 600;
+    text-align: right;
+}
+
+.seats-side {
+    display: flex;
+    gap: 10px;
+}
+
+.aisle {
+    width: 40px;
+}
+
+.seat {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background: #f8f9fa;
+    font-weight: 600;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.seat.available {
+    background: #28a745;
+    color: white;
+}
+
+.seat.booked {
+    background: #6c757d;
+    color: white;
+    cursor: not-allowed;
+}
+
+.seat.selected {
+    background: #007bff;
+    color: white;
+}
+
+.seat.available:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Summary Card */
+.summary-card h5 {
+    width: 380px;
+    margin-bottom: 1rem;
+}
+
+.fare-details {
+    margin-top: 1rem;
+}
+
+.fare-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+}
+
+.fare-item.total {
+    font-weight: bold;
+}
+
+/* Button */
+.btn-book {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 0.75rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn-book:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .travel-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .seat {
+        width: 35px;
+        height: 35px;
+        font-size: 0.85rem;
+    }
+
+    .book-ticket-container {
+        padding: 1rem;
+    }
+
+    .summary-card {
+        margin-top: 1rem;
+    }
+}

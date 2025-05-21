@@ -1,0 +1,96 @@
+<div class="home-container">
+  <div class="overlay">
+    <div class="book-ticket-container">
+      <div class="travel-card">
+        <div class="travel-left">
+          <h5>{{ flightDetails.airplane_name }}</h5>
+          <p class="travel-meta">
+            {{ flightDetails.date | date:'short' }} • 
+            {{ flightDetails.departure | date:'short'}} → {{ flightDetails.arrival | date:'short'}}
+          </p>
+          <p class="duration">
+            {{ flightDetails.from_city }} → {{ flightDetails.to_city }} • Duration: {{ flightDetails.duration }}
+          </p>
+        </div>
+        <div class="travel-right">
+          <img src="https://img.icons8.com/ios-filled/50/airplane-take-off.png" alt="Flight Icon" width="50" />
+        </div>
+      </div>
+      <div class="main-content">
+
+        <!-- Seat Selection -->
+        <div class="seats-card">
+          <h5>Select Your Seats</h5>
+          <div class="legend">
+            <span><span class="dot available"></span> Available</span>
+            <span><span class="dot booked"></span> Booked</span>
+            <span><span class="dot selected"></span> Selected</span>
+          </div>
+
+          <div class="seats-layout">
+            <div class="seat-row" *ngFor="let row of seatRows">
+              <div class="row-label">{{ row.label }}</div>
+              <div class="seats-side">
+                <div class="seat"
+                     *ngFor="let seat of row.left"
+                     [class.booked]="seat.status === 'booked'"
+                     [class.selected]="seat.status === 'selected'"
+                     [class.available]="seat.status === 'available'"
+                     (click)="toggleSeatSelection(seat)">
+                  {{ seat.label }}
+                </div>
+              </div>
+              <div class="aisle"></div>
+              <div class="seats-side">
+                <div class="seat"
+                     *ngFor="let seat of row.right"
+                     [class.booked]="seat.status === 'booked'"
+                     [class.selected]="seat.status === 'selected'"
+                     [class.available]="seat.status === 'available'"
+                     (click)="toggleSeatSelection(seat)">
+                  {{ seat.label }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Booking Summary -->
+        <div class="summary-card">
+          <h5>Booking Summary</h5>
+          <div class="fare-details">
+            <div class="fare-item">
+              <span>Selected Seats:</span>
+              <span>{{ selectedSeats.join(', ') || 'None' }}</span>
+            </div>
+            <div class="fare-item">
+              <span>Base Fare:</span>
+              <span>₹{{ baseFare }}</span>
+            </div>
+            <div class="fare-item">
+              <span>Tax(18%):</span>
+              <span>₹{{ tax }}</span>
+            </div>
+            <div class="passenger-inputs" *ngIf="passengerDetails.length">
+              <h6>Passenger Details</h6>
+              <div *ngFor="let passenger of passengerDetails; let i = index" class="passenger-row">
+                <label>Seat {{ passenger.seat }}:</label>
+                <input type="text" [(ngModel)]="passengerDetails[i].name" placeholder="Passenger Name" required />
+              </div>
+            </div>
+            
+            <div class="fare-item total">
+              <span>Total Amount:</span>
+              <span>₹{{ totalAmount }}</span>
+            </div>
+          </div>
+
+          <button class="btn-book" 
+                (click)="confirmBooking()">
+                  Confirm Booking
+         </button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

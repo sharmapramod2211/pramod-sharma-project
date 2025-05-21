@@ -1,0 +1,139 @@
+.home-container {
+  background-image: url('https://media.cntraveler.com/photos/599dd39ae74489198b4e3080/16:9/w_1920,c_limit/Flight-Deals_GettyImages-126346910.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-form {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.custom-form .form-control,
+.custom-form .form-select {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: white;
+}
+
+.custom-form .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.custom-form .form-control:focus,
+.custom-form .form-select:focus {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: white;
+  color: white;
+}
+
+.text-white {
+  color: white;
+}
+
+.btn-light {
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+  color: black;
+  transition: 0.3s ease-in-out;
+}
+
+.btn-light:hover {
+  background: white;
+  color: black;
+}
+
+
+.form-select {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  /* Text color */
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+
+.form-select option {
+  background: white;
+  color: black;
+}
+
+
+.form-select:focus {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  border-color: white;
+  outline: none;
+}
+
+.form-select::after {
+  color: white;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1.5rem;
+  }
+
+  .form-label,
+  .form-control {
+    font-size: 0.95rem;
+  }
+}
+
+.heading-search {
+  margin-top: 5rem;
+  justify-content: center;
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  z-index: 1;
+}
+
+.animate-trip {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  animation: fadeBounceIn 3s ease-out;
+} 
+
+/* Animation keyframes */
+@keyframes fadeBounceIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.8);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(10px) scale(1.05);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.zindex-dropdown {
+  z-index: 1000;
+}
+
+

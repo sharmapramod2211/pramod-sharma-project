@@ -1,0 +1,66 @@
+<div class="home-container">
+  <div class="overlay">
+    <div class="container py-4 booking-scroll-container">
+    
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="text-white">Available Flights</h3>
+        <div>
+          <button class="btn btn-outline-light me-2">Filter</button>
+          <button class="btn btn-outline-light">Sort</button>
+        </div>
+      </div>
+
+      <ng-container *ngIf="flights && flights.length > 0; else noFlights">
+        <div class="card shadow-sm border-0 mb-3 p-3" *ngFor="let flight of flights">
+          <div class="row border mb-3 p-2 align-items-center bg-light">
+            
+            <div class="col-md-2 text-center">
+              <p class="mb-1 fw-semibold text-muted"><i class="fa fa-plane-departure  text-danger"></i>Flights </p>
+              <p>{{ getAirplaneName(flight.schedule_airplane_id) }}</p>
+            </div>
+            
+            <div class="col-md-2 text-center">
+              <p class="mb-1 fw-semibold text-muted">Departure Time</p>
+              <p>{{ flight.schedule_departure_time | date:'shortTime' }}</p>
+            </div>
+
+            <div class="col-md-2 text-center">
+              <p class="mb-1 fw-semibold text-muted">Arrival Time</p>
+              <p>{{ flight.schedule_arrival_time | date:'shortTime'}}</p>
+            </div>
+
+            <div class="col-md-2 text-center">
+              <p class="mb-1 fw-semibold text-muted">
+                <i class="bi bi-clock-fill"></i>Duration</p>
+              <p>{{ flight.schedule_duration }}</p>
+            </div>
+
+            <div class="col-md-2 text-center">
+              <p class="mb-1 fw-semibold text-muted">Available Seats</p>
+              <p class="text-danger">
+                <i class="fa fa-chair me-1"></i>
+                {{ flight.schedule_available_seats || 'NA' }}
+              </p>
+            </div>
+
+            <div class="col-md-2 text-center">
+              <p class="mb-1 fw-semibold text-muted">Price</p>
+              <p>₹ {{ flight.schedule_price_per_seat || 'N/A' }}</p>
+            </div>
+
+            <div class="col-md-2 text-center">
+              <button class="btn btn-primary btn-sm" (click)="onBookNow(flight)">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #noFlights>
+        <div class="alert alert-warning text-center">
+          No flights found for the selected route and date.
+        </div>
+      </ng-template>
+
+    </div>
+  </div>
+</div>

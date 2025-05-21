@@ -1,0 +1,81 @@
+<div class="home-container">
+    <div class="overlay">
+        <div class="heading-search text-center">
+            <h1 class="animate-trip "> <i class="fa fa-plane-departure fs-7 text-danger"></i>Start Your Trip To Here</h1>
+          </div>
+        <div class="container">
+            <div class="row justify-content-center align-items-center vh-100">
+                <div class="col-lg-6">
+                    <div class="text-center text-white">
+                      
+                        <form class="custom-form p-4" (ngSubmit)="searchFlights()">
+                            <div class="row g-3">
+                                <div class="col-12 position-relative">
+                                    <label class="form-label">
+                                    <i class="fa fa-map-marker me-1"></i>From Airport
+                                    </label>
+                                    <input
+                                    type="text"
+                                    class="form-control"
+                                    [(ngModel)]="fromCity"
+                                    name="fromCity"
+                                    (input)="filterCities(fromCity, 'from')"
+                                    placeholder="Enter Departure city name..."
+                                    autocomplete="off"
+                                    />
+                                    <ul *ngIf="filteredFromCities.length > 0" class="list-group position-absolute w-100 zindex-dropdown">
+                                    <li
+                                        class="list-group-item list-group-item-action"
+                                        *ngFor="let city of filteredFromCities"
+                                        (click)="selectCity(city, 'from')"
+                                    >
+                                        {{ city.city_name }}
+                                    </li>
+                                    </ul>
+                                </div>
+                                <div class="col-12 position-relative">
+                                    <label class="form-label">
+                                    <i class="fa fa-map-marker me-1"></i>To Airport
+                                    </label>
+                                    <input
+                                    type="text"
+                                    class="form-control"
+                                    [(ngModel)]="toCity"
+                                    name="toCity"
+                                    (input)="filterCities(toCity, 'to')"
+                                    placeholder="Enter Arrival city name..."
+                                    autocomplete="off"
+                                    />
+                                    <ul *ngIf="filteredToCities.length > 0" class="list-group position-absolute w-100 zindex-dropdown">
+                                    <li
+                                        class="list-group-item list-group-item-action"
+                                        *ngFor="let city of filteredToCities"
+                                        (click)="selectCity(city, 'to')"
+                                    >
+                                        {{ city.city_name }}
+                                    </li>
+                                    </ul>
+                                </div>
+                                <div class="col-12">
+                                    <label for="travelDate" class="form-label text-white">Date of Travel</label>
+                                    <input 
+                                      type="date"
+                                      id="travelDate"
+                                      class="form-control"
+                                      [(ngModel)]="travelDate"
+                                      name="travelDate"
+                                      [min]="minDate"
+                                    />
+                                  </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                <button type="button" class="btn btn-light px-4 fw-bold" (click)="searchFlights()">Search</button>
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

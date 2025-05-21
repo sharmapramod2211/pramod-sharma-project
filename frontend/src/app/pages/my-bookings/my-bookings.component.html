@@ -1,0 +1,84 @@
+<div class="home-container">
+  <div class="overlay">
+    <div class="booking-container" *ngIf="!loading">
+      <h2 class="text-white">My Bookings</h2>
+
+      <div *ngIf="!lastBooking">
+        <p class="text-white">No bookings found.</p>
+      </div>
+
+      <div *ngIf="lastBooking" class="section-spacing">
+        <h3 class="text-white">Last Booking</h3>
+        <div class="booking-card highlight">
+          <h3>Booking ID: {{ lastBooking.id }}</h3>
+          <p><strong>Total Price:</strong> ₹{{ lastBooking.booking_total_price }}</p>
+          <p><strong>Refund Status:</strong> {{ lastBooking.booking_refund_status }}</p>
+          <p><strong>Booking Status:</strong> {{ lastBooking.booking_status }}</p>
+          <p><strong>Booking Date:</strong> {{ lastBooking.created_at | date:'medium' }}</p>
+          
+
+          <div class="passenger-section">
+            <h4>Passengers:</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Seat Number</th>
+                  <th>Fare (₹)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let passenger of lastBooking.passengers">
+                  <td>{{ passenger.bookingdetails_passenger_name }}</td>
+                  <td>{{ passenger.seat_number }}</td>
+                  <td>{{ passenger.bookingdetails_fare }}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="action-buttons">
+              <button (click)="cancelBooking(lastBooking.id)">Cancel Booking</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="previousBookings.length > 0" class="section-spacing">
+        <h3 class="text-white">Previous Bookings</h3>
+        <div class="booking-scroll-container">
+          <div *ngFor="let booking of previousBookings" class="booking-card">
+            <h3>Booking ID: {{ booking.id }}</h3>
+            <p><strong>Total Price:</strong> ₹{{ booking.booking_total_price }}</p>
+            <p><strong>Refund Status:</strong> {{ booking.booking_refund_status }}</p>
+            <p><strong>Booking Status:</strong> {{ lastBooking.booking_status }}</p> 
+            <p><strong>Booking Date:</strong> {{ booking.created_at | date:'medium' }}</p>
+            
+            <div class="passenger-section">
+              <h4>Passengers:</h4>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Seat Number</th>
+                    <th>Fare (₹)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let passenger of booking.passengers">
+                    <td>{{ passenger.bookingdetails_passenger_name }}</td>
+                    <td>{{ passenger.seat_number }}</td>
+                    <td>{{ passenger.bookingdetails_fare }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="loading" class="loading">
+      Loading your bookings...
+    </div>
+  </div>
+</div>

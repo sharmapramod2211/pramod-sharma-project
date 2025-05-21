@@ -1,0 +1,28 @@
+
+.glass-navbar {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 15px 0;
+}
+
+.glass-navbar .nav-link {
+    color: white !important;
+    transition: 0.3s ease-in-out;
+}
+
+.glass-navbar .nav-link:hover {
+    color: #ffcc00 !important;
+    text-decoration: underline;
+}
+
+.glass-navbar .navbar-brand {
+    color: white;
+    transition: 0.3s;
+}
+
+.glass-navbar .navbar-brand:hover {
+    color: #ffcc00;
+}
+
